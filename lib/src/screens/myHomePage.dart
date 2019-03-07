@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:state_mgmt_example/src/models/appModel.dart';
+import 'package:state_mgmt_example/src/serviceLocator.dart';
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
@@ -9,13 +11,20 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
 
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
+  @override
+  void initState() {
+    getIt<AppModel>().addListener(update);
+    super.initState();
   }
+
+  @override
+  void dispose() {
+    getIt<AppModel>().removeListener(update);
+    super.dispose();
+  }
+
+  void update() => setState(()=>{});
 
   @override
   Widget build(BuildContext context) {
@@ -31,17 +40,18 @@ class _MyHomePageState extends State<MyHomePage> {
               'You have pushed the button this many times:',
             ),
             Text(
-              '$_counter',
+              '${getIt.get<AppModel>().counter}',
               style: Theme.of(context).textTheme.display1,
             ),
           ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
+        onPressed: getIt.get<AppModel>().incrementCounter,
         tooltip: 'Increment',
         child: Icon(Icons.add),
       ),
     );
   }
+
 }

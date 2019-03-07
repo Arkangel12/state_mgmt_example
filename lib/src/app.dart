@@ -7,10 +7,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter State Management',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: MyHomePage(title: 'State Management'),
+      theme: ThemeData.dark(),
+      home: MyHomePage(title: 'Get It'),
     );
   }
 }
