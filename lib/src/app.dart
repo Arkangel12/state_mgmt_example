@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:state_mgmt_example/src/screens/myHomePage.dart';
+//import 'package:state_mgmt_example/src/screens/myHomePageStreams.dart';
 
 class MyApp extends StatelessWidget {
   @override
@@ -9,6 +10,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter State Management',
       theme: ThemeData.dark(),
       home: MyHomePage(title: 'Get It'),
+//      home: MyHomePageStreams(title: 'Get It'),
     );
   }
 }
