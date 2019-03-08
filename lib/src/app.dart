@@ -17,3 +17,7 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
+
+//Deep reading about Bloc / Lectura mas detallada acerca de Bloc
+//https://medium.com/flutter-community/reactive-programming-streams-bloc-6f0d2bd2d248
